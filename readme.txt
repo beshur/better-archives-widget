@@ -1,6 +1,6 @@
 ﻿=== Plugin Name ===
-Contributors: pauldewouters (this should be a list of wordpress.org userid's)
-Tags: comments, spam
+Contributors: pauldewouters
+Tags: archives, widget
 Requires at least: 3.0
 Tested up to: 3.3.1
 Stable tag: 1.0
