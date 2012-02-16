@@ -52,27 +52,27 @@ class baw_widgetarchives_widget_my_archives extends WP_Widget {
          // years - months
 
 	global $wpdb;
-$prevYear = "";
-$currentYear = "";
-if ( $months = $wpdb->get_results("SELECT DISTINCT DATE_FORMAT(post_date, '%b') AS month , MONTH(post_date) as numMonth, YEAR( post_date ) AS year, COUNT( id ) as post_count FROM $wpdb->posts WHERE post_status = 'publish' and post_date <= now( ) and post_type = 'post' GROUP BY month , year ORDER BY post_date DESC")) {
-echo '<ul>';
-foreach ($months as $month) {
-$currentYear = $month->year;
-if (($currentYear != $prevYear) && ($prevYear != "")) { echo "</ul></li>"; }
-if ($currentYear != $prevYear) {
-?>
-<li class="baw-year"><a href="<?php bloginfo('url') ?>/<?php echo $month->year; ?>/"><?php echo $month->year; ?></a>
-<ul class="baw-months">
-<?php
-} ?>
-<li class="baw-month"><a href="<?php bloginfo('url') ?>/<?php echo $month->year; ?>/<?php echo date("m", mktime(0, 0, 0, $month->numMonth, 1, $month->year)) ?>"><?php echo $month->month; ?><?php echo ' ' . $month->year; ?></a></li>
-<?php
-$prevYear = $month->year;
-}//end foreach
-}
-?>
-</ul></li><?php
-echo '</ul>';
+        $prevYear = "";
+        $currentYear = "";
+        if ( $months = $wpdb->get_results("SELECT DISTINCT DATE_FORMAT(post_date, '%b') AS month , MONTH(post_date) as numMonth, YEAR( post_date ) AS year, COUNT( id ) as post_count FROM $wpdb->posts WHERE post_status = 'publish' and post_date <= now( ) and post_type = 'post' GROUP BY month , year ORDER BY post_date DESC")) {
+        echo '<ul>';
+        foreach ($months as $month) {
+        $currentYear = $month->year;
+        if (($currentYear != $prevYear) && ($prevYear != "")) { echo "</ul></li>"; }
+        if ($currentYear != $prevYear) {
+        ?>
+        <li class="baw-year"><a href="<?php echo get_year_link( $month->year ); ?>"><?php echo $month->year; ?></a>
+        <ul class="baw-months">
+        <?php
+        } ?>
+        <li class="baw-month"><a href="<?php echo get_month_link( $month->year, $month->numMonth ); ?>"><?php echo $month->month; ?><?php echo ' ' . $month->year; ?></a></li>
+        <?php
+        $prevYear = $month->year;
+        }//end foreach
+        }
+        ?>
+        </ul></li><?php
+        echo '</ul>';
         echo $after_widget;
     }
 }
