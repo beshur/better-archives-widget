@@ -1,7 +1,7 @@
 <?php
 
     //load scripts
-    add_action('wp_enqueue_scripts','baw_load_scripts');
+    add_action( 'wp_enqueue_scripts','baw_load_scripts' );
  
 function baw_load_scripts(){ 
      wp_enqueue_style('baw-css', plugins_url( '/baw-accordion.css', __FILE__));

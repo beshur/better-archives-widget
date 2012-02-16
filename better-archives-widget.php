@@ -26,7 +26,28 @@ License: GPLv2
     Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-// Plugin Directory 
-define( 'BAW_DIR', dirname( __FILE__ ) );
-include_once(BAW_DIR . '/widget-archives.php' );
-include_once(BAW_DIR . '/load-scripts.php' );
+/* Set constant path to the Better Archives Widget plugin directory. */
+define( 'BAW_DIR', plugin_dir_path( __FILE__ ) );
+
+/* Set constant path to the Better Archives Widget plugin URL. */
+define( 'BAW_URL', plugin_dir_url( __FILE__ ) );
+require_once(BAW_DIR . '/widget-archives.php' );
+require_once(BAW_DIR . '/load-scripts.php' );
+/* Set up the plugin. */
+add_action( 'plugins_loaded', 'baw_setup' );
+
+/**
+ * Sets up the Better Archives Widget and loads files at the appropriate time.
+ *
+ * @since 0.8.0
+ */
+function baw_setup() {
+
+
+
+	if ( is_admin() ) {
+
+		/* Load translations. */
+		load_plugin_textdomain( 'better-archives-widget', false, 'better-archives-widget/languages' );
+        }
+}
