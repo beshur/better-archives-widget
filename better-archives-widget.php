@@ -3,7 +3,7 @@
 Plugin Name: Better archives widget
 Plugin URI: http://wpconsult.net
 Description: Archives widget that groups by year and month
-Version: 1.0
+Version: 2.1
 Author: Paul de Wouters
 Author URI: http://wpconsult.net
 License: GPLv2
@@ -42,12 +42,8 @@ add_action( 'plugins_loaded', 'baw_setup' );
  * @since 0.8.0
  */
 function baw_setup() {
-
-
-
-	if ( is_admin() ) {
-
-		/* Load translations. */
-		load_plugin_textdomain( 'better-archives-widget', false, 'better-archives-widget/languages' );
-        }
+    if ( is_admin() ) {
+        /* Load translations. */
+        load_plugin_textdomain( 'better-archives-widget', false, 'better-archives-widget/languages' );
+    }
 }
