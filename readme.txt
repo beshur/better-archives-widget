@@ -3,7 +3,7 @@ Contributors: pauldewouters
 Tags: archives,widget
 Requires at least: 3.0
 Tested up to: 3.4-alpha-19904
-Stable tag: 2.0
+Stable tag: 2.1
 
 The default Archives widget simply lists links to the monthly archives. This plugin gives you a new widget that groups the months by year
 
