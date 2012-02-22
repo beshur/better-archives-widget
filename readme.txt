@@ -32,6 +32,10 @@ See http://style.org/unladenswallow/
 
 == Changelog ==
 
+= 2.1.1 =
+
+just changed document.ready to self invoking anonymous function
+
 = 2.1 =
 * Removed CSS file and minified js
 
